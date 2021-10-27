@@ -1,3 +1,5 @@
 .idea/
 *.json
 *.lcv
+leetcode/editor/cn/doc/content/
+leetcode/editor/cn/doc/solution/
