@@ -57,32 +57,29 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class CustomStack {
     private Deque<Integer> queue;
-    private int size;
     private int maxSize;
 
     public CustomStack(int maxSize) {
         this.queue = new LinkedList<>();
-        this.size = 0;
         this.maxSize = maxSize;
     }
 
     public void push(int x) {
-        if (this.size < this.maxSize) {
+        if (this.queue.size() < this.maxSize) {
             queue.offer(x);
-            size++;
         }
     }
 
     public int pop() {
         if (this.queue.isEmpty())
             return -1;
-        this.size--;
         return queue.pollLast();
     }
 
     public void increment(int k, int val) {
-        k = k > this.size ? this.size : k;
-        for (int i = 0; i < this.size; i++) {
+        int size = this.queue.size();
+        k = k > size ? size : k;
+        for (int i = 0; i < size; i++) {
             int tmp = this.queue.poll();
             if (k > 0) {
                 k--;
